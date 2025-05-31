@@ -10,4 +10,9 @@ public class DemoController {
     public String homePage(){
         return "home";
     }
+
+    @GetMapping("/showLogin")
+    public String showLogin(){
+        return "login-form";
+    }
 }
