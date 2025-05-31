@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Demo Company Home Page</title>
@@ -12,11 +13,15 @@
 <div class="container">
     <h3>Demo Company Home Page</h3>
     <hr>
+    <h5><span sec:authentication="principal.username"></span></h5>
+    <h7><span sec:authentication="principal.authorities"></span></h7>
+    <hr>
 
     Welcome to Demo Company home page!!! <br>
     Feel at home!<br>
+    <a th:href="@{/leaders}">Leaders</a><br>
+    <a th:href="@{/admins}">Admins</a>
     <hr>
-
     <form th:action="@{/logout}" method="post">
         <input type="submit" class="btn btn-primary" value="Logout"/>
     </form>
