@@ -19,8 +19,12 @@
 
     Welcome to Demo Company home page!!! <br>
     Feel at home!<br>
-    <a th:href="@{/leaders}">Leaders</a><br>
-    <a th:href="@{/admins}">Admins</a>
+    <div sec:authorize="hasRole('MANAGER')">
+        <a th:href="@{/leaders}">Leaders</a><br>
+    </div>
+    <div sec:authorize="hasRole('ADMIN')">
+        <a th:href="@{/admins}">Admins</a>
+    </div>
     <hr>
     <form th:action="@{/logout}" method="post">
         <input type="submit" class="btn btn-primary" value="Logout"/>

@@ -26,4 +26,9 @@ public class DemoController {
     public String adminsPage(){
         return "admins";
     }
+
+    @GetMapping("/access-denied")
+    public String showAccessDenied(){
+        return "access-denied";
+    }
 }
